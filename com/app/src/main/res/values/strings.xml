@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">RailHelp</string>
+    <string name="action_settings">Settings</string>
+    <string name="button_build_graph">Build Graph</string>
+    <string name="source_town">Source Town:</string>
+    <string name="destination_town">Destination Town:</string>
+    <string name="find_a_way">Find a Way</string>
+    <string name="find_all_way_by_stop">Find Ways By Stop</string>
+    <string name="find_shortest_way">Find Shortest Way</string>
+    <string name="find_all_way_by_length">Find Ways By Length</string>
+    <string name="folder">Folder</string>
+    <string name="parentDirectory">Parent Directory</string>
+    <string name="fileSize">File Size</string>
+    <string name="currentDir">Current Dir</string>
+    <string name="graph1">AB5, BC4, CD8, DC8, DE6, AD5, CE2, EB3, AE7</string>
+    <string name="title_activity_way_picker">WayPickerActivity</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="from_to">From,(Passing),To:</string>
+    <string name="stop_number">Stops:</string>
+    <string name="road_length">Length Less Than:</string>
+</resources>
