@@ -3,6 +3,7 @@
     package="railwayhelp.tw.com">
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-sdk android:minSdkVersion="11" />
 
     <application
         android:allowBackup="true"
@@ -12,8 +13,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".RailHelpActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

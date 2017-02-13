@@ -1,15 +1,25 @@
 package railwayhelp.tw.com;
 
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBar.TabListener;
+import android.support.v7.app.ActionBar.Tab;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class RailHelpActivity extends AppCompatActivity {
     private Button mGraphButton = null;
@@ -20,9 +30,20 @@ public class RailHelpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rail_help);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        //setContentView(R.layout.activity_rail_help);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        setContentView(R.layout.content_rail_help);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
+        final ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        TabContentFragment fragment = new TabContentFragment();
+        fragment.setText("Tab 1");
+        actionBar.addTab(actionBar.newTab().setText("Tab 1").setTabListener(new AppTabListner(fragment)));
+        fragment.setText("Tab 2");
+        actionBar.addTab(actionBar.newTab().setText("Tab 2").setTabListener(new AppTabListner(fragment)));
+        fragment.setText("Tab 3");
+        actionBar.addTab(actionBar.newTab().setText("Tab 3").setTabListener(new AppTabListner(fragment)));
 
         mContext = this.getApplicationContext();
         mGraphText = (EditText)findViewById(R.id.graph_field);
@@ -59,5 +80,50 @@ public class RailHelpActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private class AppTabListner implements TabListener {
+        private TabContentFragment mFragment;
+
+        public AppTabListner(TabContentFragment fragment) {
+            mFragment = fragment;
+        }
+
+        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+            ft.add(R.id.fragment_content, mFragment,mFragment.getText());
+        }
+
+        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+            ft.remove(mFragment);
+        }
+
+        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+            Toast.makeText(RailHelpActivity.this, "Reslected", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    public static class TabContentFragment extends Fragment {
+        private String mText;
+
+        public TabContentFragment() {}
+//        public TabContentFragment(String text) {
+//            mText = text;
+//        }
+
+        public void setText(String text) {
+            mText = text;
+        }
+        public String getText() {
+            return mText;
+        }
+        public View onCreatView(LayoutInflater inflater, ViewGroup container,
+                                Bundle savedInstanceState) {
+            View fragView = inflater.inflate(R.layout.action_bar_tab_content, container, false);
+            TextView text = (TextView)fragView.findViewById(R.id.text);
+            text.setText(mText);
+
+            return fragView;
+        }
+
     }
 }
