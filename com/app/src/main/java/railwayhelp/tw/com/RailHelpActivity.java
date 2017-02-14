@@ -10,6 +10,7 @@ import android.support.v7.app.ActionBar.Tab;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.ActionBarOverlayLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Menu;
@@ -18,6 +19,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -31,20 +33,32 @@ public class RailHelpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_rail_help);
-        requestWindowFeature(Window.FEATURE_ACTION_BAR);
-        setContentView(R.layout.content_rail_help);
+        //requestWindowFeature(Window.FEATURE_ACTION_BAR);
+        View contentView = this.getLayoutInflater().inflate(R.layout.content_rail_help, null);
+        setContentView(contentView);
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
-        final ActionBar actionBar = getSupportActionBar();
-        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
-        TabContentFragment fragment = new TabContentFragment();
-        fragment.setText("Tab 1");
-        actionBar.addTab(actionBar.newTab().setText("Tab 1").setTabListener(new AppTabListner(fragment)));
-        fragment.setText("Tab 2");
-        actionBar.addTab(actionBar.newTab().setText("Tab 2").setTabListener(new AppTabListner(fragment)));
-        fragment.setText("Tab 3");
-        actionBar.addTab(actionBar.newTab().setText("Tab 3").setTabListener(new AppTabListner(fragment)));
 
+        setupActionBar();
+        initView();
+    }
+
+    public void setupActionBar() {
+        final ActionBar actionBar = getSupportActionBar();
+        //actionBar.setDisplayShowTitleEnabled(false);
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        TabContentFragment fragment1 = new TabContentFragment();
+        fragment1.setText("Tab 1");
+        actionBar.addTab(actionBar.newTab().setText("Tab 1").setTabListener(new AppTabListner(fragment1)));
+        TabContentFragment fragment2 = new TabContentFragment();
+        fragment2.setText("Tab 2");
+        actionBar.addTab(actionBar.newTab().setText("Tab 2").setTabListener(new AppTabListner(fragment2)));
+        TabContentFragment fragment3 = new TabContentFragment();
+        fragment3.setText("Tab 3");
+        actionBar.addTab(actionBar.newTab().setText("Tab 3").setTabListener(new AppTabListner(fragment3)));
+
+    }
+    public void initView() {
         mContext = this.getApplicationContext();
         mGraphText = (EditText)findViewById(R.id.graph_field);
         mGraphButton = (Button)findViewById(R.id.fileSelectButton);
@@ -59,7 +73,6 @@ public class RailHelpActivity extends AppCompatActivity {
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
