@@ -1,8 +1,12 @@
 package edu.cs.asr;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.speech.RecognitionService;
 import android.speech.RecognizerIntent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -13,6 +17,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.EngineInfo;
+import android.speech.tts.UtteranceProgressListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +42,8 @@ public class ASRActivity extends AppCompatActivity {
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         List<ResolveInfo> infolist = this.getPackageManager().queryIntentActivities(intent, 0);
 
-        if (infolist.size() != 0) {
+        int i = 0;
+        if (i != 0) {
             mSpeak.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -48,7 +56,25 @@ public class ASRActivity extends AppCompatActivity {
             });
         } else {
             mSpeak.setEnabled(false);
-            mText.setText("No Recognizer Service Found");
+            intent = new Intent(RecognitionService.SERVICE_INTERFACE);
+            PackageManager pm = this.getPackageManager();
+            ResolveInfo info = pm.resolveService(intent, PackageManager.GET_META_DATA);
+            ResolveInfo aInfo = pm.resolveActivity(intent, PackageManager.GET_META_DATA);
+            boolean sInfoFlag = info != null && info.serviceInfo != null;
+            boolean aInfoFlag = aInfo != null && aInfo.activityInfo != null;
+            if (sInfoFlag == true && aInfoFlag == false) {
+                String text = new ComponentName(info.serviceInfo.packageName, info.serviceInfo.name).flattenToString();
+                mText.setText(text);
+            } else if (aInfoFlag == true && sInfoFlag == false) {
+                String text = new ComponentName(info.serviceInfo.packageName, info.serviceInfo.name).flattenToString();
+                mText.setText(text);
+            } else if (aInfoFlag && sInfoFlag) {
+                String text1 = new ComponentName(info.serviceInfo.packageName, info.serviceInfo.name).flattenToString();
+                String text2 = new ComponentName(info.serviceInfo.packageName, info.serviceInfo.name).flattenToString();
+                mText.setText(text1 + text2);
+            } else {
+                mText.setText("No Recognizer Service Found");
+            }
         }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

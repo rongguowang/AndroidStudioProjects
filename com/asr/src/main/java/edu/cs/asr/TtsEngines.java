@@ -126,7 +126,7 @@ public class TtsEngines {
     public String getHighestRankedEngineName() {
         final List<EngineInfo> engines = getEngines();
 
-        if (engines.size() > 0 && engines.get(0).system) {
+        if (engines.size() > 0 /*&& engines.get(0).system*/) {
             return engines.get(0).name;
         }
 
@@ -241,35 +241,35 @@ public class TtsEngines {
             final Resources res = pm.getResourcesForApplication(si.applicationInfo);
 
             int type;
-            while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT) {
-                if (type == XmlResourceParser.START_TAG) {
-                    if (!XML_TAG_NAME.equals(parser.getName())) {
-                        Log.w(TAG, "Package " + si + " uses unknown tag :"
-                                + parser.getName());
-                        return null;
-                    }
-
-                    final AttributeSet attrs = Xml.asAttributeSet(parser);
-                    final TypedArray array = res.obtainAttributes(attrs,
-                            com.android.internal.R.styleable.TextToSpeechEngine);
-                    final String settings = array.getString(
-                            com.android.internal.R.styleable.TextToSpeechEngine_settingsActivity);
-                    array.recycle();
-
-                    return settings;
-                }
-            }
+//            while ((type = parser.next()) != XmlResourceParser.END_DOCUMENT) {
+//                if (type == XmlResourceParser.START_TAG) {
+//                    if (!XML_TAG_NAME.equals(parser.getName())) {
+//                        Log.w(TAG, "Package " + si + " uses unknown tag :"
+//                                + parser.getName());
+//                        return null;
+//                    }
+//
+//                    final AttributeSet attrs = Xml.asAttributeSet(parser);
+//                    final TypedArray array = res.obtainAttributes(attrs,
+//                            com.android.internal.R.styleable.TextToSpeechEngine);
+//                    final String settings = array.getString(
+//                            com.android.internal.R.styleable.TextToSpeechEngine_settingsActivity);
+//                    array.recycle();
+//
+//                    return settings;
+//                }
+//            }
 
             return null;
         } catch (NameNotFoundException e) {
             Log.w(TAG, "Could not load resources for : " + si);
             return null;
-        } catch (XmlPullParserException e) {
-            Log.w(TAG, "Error parsing metadata for " + si + ":" + e);
-            return null;
-        } catch (IOException e) {
-            Log.w(TAG, "Error parsing metadata for " + si + ":" + e);
-            return null;
+//        } catch (XmlPullParserException e) {
+//            Log.w(TAG, "Error parsing metadata for " + si + ":" + e);
+//            return null;
+//        } catch (IOException e) {
+//            Log.w(TAG, "Error parsing metadata for " + si + ":" + e);
+//            return null;
         } finally {
             if (parser != null) {
                 parser.close();
@@ -287,8 +287,8 @@ public class TtsEngines {
             CharSequence label = service.loadLabel(pm);
             engine.label = TextUtils.isEmpty(label) ? engine.name : label.toString();
             engine.icon = service.getIconResource();
-            engine.priority = resolve.priority;
-            engine.system = isSystemEngine(service);
+            //engine.priority = resolve.priority;
+            //engine.system = isSystemEngine(service);
             return engine;
         }
 
@@ -307,18 +307,19 @@ public class TtsEngines {
          */
         @Override
         public int compare(EngineInfo lhs, EngineInfo rhs) {
-            if (lhs.system && !rhs.system) {
-                return -1;
-            } else if (rhs.system && !lhs.system) {
-                return 1;
-            } else {
+//            if (lhs.system && !rhs.system) {
+//                return -1;
+//            } else if (rhs.system && !lhs.system) {
+//                return 1;
+//            } else {
                 // Either both system engines, or both non system
                 // engines.
                 //
                 // Note, this isn't a typo. Higher priority numbers imply
                 // higher priority, but are "lower" in the sort order.
-                return rhs.priority - lhs.priority;
-            }
+//                return rhs.priority - lhs.priority;
+//            }
+            return -1;
         }
     }
 
