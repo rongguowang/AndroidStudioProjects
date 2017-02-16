@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:text="@string/from_to"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView2" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="A,B,C"
+            android:ems="10"
+            android:id="@+id/editText_way" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:text="@string/stop_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView_stop_no" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="2"
+            android:ems="10"
+            android:id="@+id/editText_stop" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TextView
+            android:text="@string/road_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView4" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:text="30"
+            android:ems="10"
+            android:id="@+id/editText_length" />
+    </TableRow>
+
+    <TableRow>
+        <Button
+            android:text="@string/find_a_way"
+            android:layout_width="@dimen/spinner_margin"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_find_way" />
+        <Button
+            android:text="@string/find_all_way_by_stop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_find_way_by_stop" />
+    </TableRow>
+
+
+    <TableRow>
+        <Button
+            android:text="@string/find_shortest_way"
+            android:layout_width="@dimen/spinner_margin"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_find_short_way" />
+        <Button
+            android:text="@string/find_all_way_by_length"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button_find_way_by_length" />
+    </TableRow>
+</TableLayout>

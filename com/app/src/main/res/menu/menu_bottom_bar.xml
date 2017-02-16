@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <item
+        android:id="@+id/bottom_toolbar_findway"
+        android:title="@string/menu_item_way"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/bottom_toolbar_stop"
+        android:title="@string/menu_item_stop"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/bottom_toolbar_shortest"
+        android:title="@string/menu_item_shortest"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/bottom_toolbar_allways"
+        android:title="@string/menu_item_all"
+        app:showAsAction="always" />
+</menu>

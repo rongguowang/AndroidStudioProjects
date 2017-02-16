@@ -1,108 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:id="@+id/activity_way_picker"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="railwayhelp.tw.com.WayPickerActivity">
 
-    <TableLayout
+    <!--include layout="@layout/way_picker_table"/-->
+
+    <android.support.v7.widget.ActionMenuView
+        android:id="@+id/bottom_tool_bar"
+        android:layout_height="?attr/actionBarSize"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:text="@string/from_to"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="A,B,C"
-                android:ems="10"
-                android:id="@+id/editText_way" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:text="@string/stop_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView_stop_no" />
-
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="2"
-                android:ems="10"
-                android:id="@+id/editText_stop" />
-        </TableRow>
-
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" >
-
-            <TextView
-                android:text="@string/road_length"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView4" />
-
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:text="30"
-                android:ems="10"
-                android:id="@+id/editText_length" />
-        </TableRow>
-
-        <TableRow>
-            <Button
-                android:text="@string/find_a_way"
-                android:layout_width="@dimen/spinner_margin"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_find_way" />
-            <Button
-                android:text="@string/find_all_way_by_stop"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_find_way_by_stop" />
-        </TableRow>
-
-
-        <TableRow>
-            <Button
-                android:text="@string/find_shortest_way"
-                android:layout_width="@dimen/spinner_margin"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_find_short_way" />
-            <Button
-                android:text="@string/find_all_way_by_length"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/button_find_way_by_length" />
-        </TableRow>
-
-    </TableLayout>
+        android:layout_alignParentBottom="true"
+        android:background="?attr/colorPrimary"
+        android:scrollbarAlwaysDrawHorizontalTrack="true"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@id/bottom_tool_bar"
         android:id="@+id/textView_result" />
 
-</LinearLayout>
+</RelativeLayout>
