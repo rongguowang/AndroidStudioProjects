@@ -2,11 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/content_rail_help"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:layout_height="match_parent">
 
 
     <FrameLayout android:id="@+id/fragment_content"
@@ -28,4 +24,51 @@
         android:layout_alignParentTop="true"
         android:text="@string/graph1"
         android:layout_above="@id/fileSelectButton" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/bottom_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:layout_alignParentBottom="true">
+        <LinearLayout
+            android:id="@+id/bottom_toolbar_layout"
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="4"
+            android:gravity="center_horizontal">
+            <ImageButton
+                android:id="@+id/bottom_toolbar_button1"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:clickable="true"
+                android:layout_weight="1"
+                android:src="@drawable/common_ic_googleplayservices"/>
+            <ImageButton
+                android:id="@+id/bottom_toolbar_button2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:clickable="true"
+                android:layout_weight="1"
+                android:src="@drawable/common_full_open_on_phone"/>
+            <ImageButton
+                android:id="@+id/bottom_toolbar_button3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:clickable="true"
+                android:layout_weight="1"
+                android:src="@drawable/common_google_signin_btn_icon_dark"/>
+            <ImageButton
+                android:id="@+id/bottom_toolbar_button4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                android:clickable="true"
+                android:layout_weight="1"
+                android:src="@drawable/common_plus_signin_btn_icon_dark"/>
+        </LinearLayout>
+    </android.support.v7.widget.Toolbar>
 </RelativeLayout>

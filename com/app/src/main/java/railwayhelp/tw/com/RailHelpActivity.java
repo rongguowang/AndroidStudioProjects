@@ -20,6 +20,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,6 +30,10 @@ public class RailHelpActivity extends AppCompatActivity {
     private EditText mGraphText = null;
     private Context mContext = null;
     private RoadManager mRoadManager = null;
+    private ImageButton bottomButton1 = null;
+    private ImageButton bottomButton2 = null;
+    private ImageButton bottomButton3 = null;
+    private ImageButton bottomButton4 = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +47,7 @@ public class RailHelpActivity extends AppCompatActivity {
 
         setupActionBar();
         initView();
+        setupBottomBar();
     }
 
     public void setupActionBar() {
@@ -71,6 +77,39 @@ public class RailHelpActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(mContext, WayPickerActivity.class);
                 startActivity(intent);
+            }
+        });
+    }
+
+    private void setupBottomBar() {
+        Toolbar bottomBar = (Toolbar) findViewById(R.id.bottom_toolbar);
+
+        bottomButton1 = (ImageButton)findViewById(R.id.bottom_toolbar_button1);
+        bottomButton1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "ImageButton1 clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        bottomButton2 = (ImageButton)findViewById(R.id.bottom_toolbar_button2);
+        bottomButton2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "ImageButton2 clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        bottomButton3 = (ImageButton)findViewById(R.id.bottom_toolbar_button3);
+        bottomButton3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "ImageButton3 clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+        bottomButton4 = (ImageButton)findViewById(R.id.bottom_toolbar_button4);
+        bottomButton4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "ImageButton4 clicked", Toast.LENGTH_SHORT).show();
             }
         });
     }
