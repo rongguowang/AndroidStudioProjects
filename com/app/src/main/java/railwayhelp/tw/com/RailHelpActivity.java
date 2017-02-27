@@ -25,6 +25,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import railwayhelp.tw.com.views.LadderView;
+
 public class RailHelpActivity extends AppCompatActivity {
     private Button mGraphButton = null;
     private EditText mGraphText = null;
@@ -34,18 +36,29 @@ public class RailHelpActivity extends AppCompatActivity {
     private ImageButton bottomButton2 = null;
     private ImageButton bottomButton3 = null;
     private ImageButton bottomButton4 = null;
+    private LadderView ladder = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_rail_help);
-        //requestWindowFeature(Window.FEATURE_ACTION_BAR);
+
+        showLadderView();
+        /*
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        */
+        //showRailHelp();
+        //setupActionBar();
+    }
+
+    public void showLadderView() {
+        ladder = new LadderView(this, 100, 100, 860, 860, 5, LadderView.orientation.horizontal);
+        setContentView(ladder);
+    }
+    public void showRailHelp() {
         View contentView = this.getLayoutInflater().inflate(R.layout.content_rail_help, null);
         setContentView(contentView);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
-
-        setupActionBar();
         initView();
         setupBottomBar();
     }
