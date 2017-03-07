@@ -7,4 +7,5 @@
     <dimen name="spinner_margin">175dp</dimen>
     <dimen name="text_height">50dp</dimen>
     <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="ladder_view_default_padding">5dp</dimen>
 </resources>

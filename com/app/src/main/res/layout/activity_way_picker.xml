@@ -5,7 +5,7 @@
     android:id="@+id/activity_way_picker"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="railwayhelp.tw.com.WayPickerActivity">
+    tools:context="edu.cs.datamagic.WayPickerActivity">
 
     <!--include layout="@layout/way_picker_table"/-->
 

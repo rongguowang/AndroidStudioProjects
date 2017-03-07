@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RailHelp</string>
+    <string name="app_name">DataMagic</string>
     <string name="action_settings">Settings</string>
     <string name="button_build_graph">Build Graph</string>
     <string name="source_town">Source Town:</string>
@@ -22,4 +22,6 @@
     <string name="menu_item_stop">Stop</string>
     <string name="menu_item_shortest">Shortest</string>
     <string name="menu_item_all">All</string>
+    <string name="title_activity_pie">PieActivity</string>
+    <string name="reset_button">Reset</string>
 </resources>
