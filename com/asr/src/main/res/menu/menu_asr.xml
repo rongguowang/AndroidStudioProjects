@@ -1,6 +1,10 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+<<<<<<< HEAD
     xmlns:tools="http://schemas.android.com/tools" tools:context="edu.cs.asr.ASRActivity">
+=======
+    xmlns:tools="http://schemas.android.com/tools" tools:context="railwayhelp.tw.asr.ASRActivity">
+>>>>>>> dc5e83b3b2f44a25b972adeb15449f7b50246e29
     <item android:id="@+id/action_settings" android:orderInCategory="100"
         android:title="@string/action_settings" app:showAsAction="never" />
 </menu>

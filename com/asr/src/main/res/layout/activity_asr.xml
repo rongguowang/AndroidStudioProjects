@@ -4,7 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent" android:fitsSystemWindows="true"
+<<<<<<< HEAD
     tools:context="edu.cs.asr.ASRActivity">
+=======
+    tools:context="railwayhelp.tw.asr.ASRActivity">
+>>>>>>> dc5e83b3b2f44a25b972adeb15449f7b50246e29
 
     <android.support.design.widget.AppBarLayout android:layout_width="match_parent"
         android:layout_height="wrap_content" android:theme="@style/AppTheme.AppBarOverlay">

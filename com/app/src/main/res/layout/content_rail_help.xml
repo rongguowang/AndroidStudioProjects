@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_rail_help"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    tools:context="edu.cs.datamagic.RailHelpActivity">
 
     <FrameLayout android:id="@+id/fragment_content"
         android:layout_width="match_parent"
@@ -24,6 +25,7 @@
         android:layout_alignParentTop="true"
         android:text="@string/graph1"
         android:layout_above="@id/fileSelectButton" />
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/bottom_toolbar"
         android:layout_width="match_parent"
@@ -43,32 +45,28 @@
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:clickable="true"
-                android:layout_weight="1"
-                android:src="@drawable/common_ic_googleplayservices"/>
+                android:layout_weight="1" />
             <ImageButton
                 android:id="@+id/bottom_toolbar_button2"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:clickable="true"
-                android:layout_weight="1"
-                android:src="@drawable/common_full_open_on_phone"/>
+                android:layout_weight="1" />
             <ImageButton
                 android:id="@+id/bottom_toolbar_button3"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:clickable="true"
-                android:layout_weight="1"
-                android:src="@drawable/common_google_signin_btn_icon_dark"/>
+                android:layout_weight="1" />
             <ImageButton
                 android:id="@+id/bottom_toolbar_button4"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:scaleType="fitXY"
                 android:clickable="true"
-                android:layout_weight="1"
-                android:src="@drawable/common_plus_signin_btn_icon_dark"/>
+                android:layout_weight="1" />
         </LinearLayout>
     </android.support.v7.widget.Toolbar>
 </RelativeLayout>
