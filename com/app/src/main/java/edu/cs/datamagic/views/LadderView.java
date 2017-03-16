@@ -132,7 +132,11 @@ public class LadderView extends View {
             }
         } else {
             for (int i = 0; i < steps; i++) {
-                textMeasure = paint.measureText(slist[i]);
+//                if (i < slist.length && slist[i] != null) {
+//                    textMeasure = paint.measureText(slist[i]);
+//                }else {
+                    textMeasure = paint.measureText(slist[0]);
+//                }
                 indexMeausre = paint.measureText(String.valueOf(i));
                 if (ori == orientation.vertical) {
                     offsetHorizontal = mLadderWidth / 2;
@@ -161,12 +165,12 @@ public class LadderView extends View {
                 } else {
                 }
 
-                textList.add(new text(new point(inx, iny), String.valueOf(i + 1)));
-                if (slist[i] != null) {
+                textList.add(new text(new point(inx, iny), String.valueOf(i)));
+                if (i < slist.length && slist[i] != null) {
                     text t = new text(new point(x, y), slist[i]);
                     textList.add(t);
                 } else {
-                    break;
+                    continue;
                 }
             }
         }
@@ -191,6 +195,11 @@ public class LadderView extends View {
                     barX = stopPoint.getX();
                 }
             }
+            if (steps == 1) {
+                point start = new point(stopPoint.getX(), startPoint.getY());
+                point stop = stopPoint;
+                barList.add(new line(start, stop));
+            }
         } else if (ori == orientation.vertical) {
             mLadderLength = stopPoint.getY() - startPoint.getY();
             mLadderWidth = stopPoint.getX() - startPoint.getX();
@@ -209,7 +218,14 @@ public class LadderView extends View {
                     barY = stopPoint.getY();
                 }
             }
+            if (steps == 0) {
+                point start = new point(startPoint.getX(), stopPoint.getY());
+                point stop = stopPoint;
+                barList.add(new line(start, stop));
+            }
         } else {}
+
+
 
         buildTextList(texts);
     }

@@ -13,11 +13,33 @@ public class text {
         textString = s;
     }
 
+
     public String getTextString() {
         return textString;
     }
 
     public point getTextPosition() {
         return textPosition;
+    }
+
+    public void setTextString(String s) {
+        if ( s != null) {
+            textString = s;
+        }
+    }
+
+    public boolean hasText() {
+        boolean ret = true;
+        if (textString == null) {
+            ret = false;
+        }
+        return ret;
+    }
+
+    public boolean hasPosition() {
+        boolean ret = true;
+        if (textPosition == null)
+            ret = false;
+        return ret;
     }
 }

@@ -34,14 +34,20 @@
         custom:autoCenterPointerInSlice="true"
         custom:pointerRadius="4dp"
         />
-    <edu.cs.datamagic.views.LadderView
+    <!--edu.cs.datamagic.views.LadderView
         android:id="@+id/ladder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/Pie"
         android:textSize="15dp"
         android:orientation="horizontal"
-        ladder:steps="7"/>
+        ladder:steps="1"/-->
+    <edu.cs.datamagic.views.SquareView
+        android:id="@+id/sqaure"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Pie"
+        android:textSize="15dp"/>
     <Button
         android:id="@+id/Reset"
         android:layout_width="match_parent"

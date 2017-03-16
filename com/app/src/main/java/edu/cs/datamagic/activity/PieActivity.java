@@ -16,6 +16,7 @@ import java.util.Random;
 import edu.cs.datamagic.R;
 import edu.cs.datamagic.views.LadderView;
 import edu.cs.datamagic.views.PieChart;
+import edu.cs.datamagic.views.SquareView;
 
 public class PieActivity extends AppCompatActivity {
     private Context mcontext;
@@ -49,21 +50,34 @@ public class PieActivity extends AppCompatActivity {
 
 
 //        String[] slist = {"we", "can", "beat", "them", "underground", "test", "again"};
-        final LadderView ladder = (LadderView)findViewById(R.id.ladder);
+//        final LadderView ladder = (LadderView)findViewById(R.id.ladder);
 //        ladder.setTextList(slist);
 
+        final SquareView square = (SquareView)findViewById(R.id.sqaure);
+//        square.setIndexText("1");
+//        square.setInnerText("2");
         ((Button) findViewById(R.id.Reset)).setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 //pie.setCurrentItem(0);
-//                Intent intent = new Intent(mcontext, RailHelpActivity.class);
-//                startActivity(intent);
+//                {
+//                    Intent intent = new Intent(mcontext, RailHelpActivity.class);
+//                    startActivity(intent);
+//                }
 
-                String[] slist = new String[7];
-                Random r = new Random();
-                for(int i = 0; i < 7; i++) {
-                    slist[i] = String.valueOf(r.nextInt(100 - 10) + 10);
+//                {
+//                    String[] slist = new String[7];
+//                    Random r = new Random();
+//                    for (int i = 0; i < 7; i++) {
+//                        slist[i] = String.valueOf(r.nextInt(100 - 10) + 10);
+//                    }
+//                    ladder.setTextList(slist);
+//                }
+                {
+                    Random r = new Random();
+                    square.setIndexText(String.valueOf(r.nextInt(100 - 10) + 10));
+                    square.setInnerText(String.valueOf(r.nextInt(100 - 10) + 10));
                 }
-                ladder.setTextList(slist);
+
             }
         });
     }

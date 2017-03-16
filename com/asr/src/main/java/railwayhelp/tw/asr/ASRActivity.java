@@ -17,6 +17,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import edu.cs.asr.R;
+
 public class ASRActivity extends AppCompatActivity {
     private ImageButton mSpeak = null;
     private TextView mText = null;
