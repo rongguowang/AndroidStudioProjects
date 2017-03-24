@@ -2,6 +2,7 @@ package edu.cs.datamagic.activity;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -17,6 +18,7 @@ import edu.cs.datamagic.R;
 import edu.cs.datamagic.views.LadderView;
 import edu.cs.datamagic.views.PieChart;
 import edu.cs.datamagic.views.SquareView;
+import edu.cs.datamagic.views.MyAnimationView;
 
 public class PieActivity extends AppCompatActivity {
     private Context mcontext;
@@ -25,16 +27,24 @@ public class PieActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        mcontext = this.getApplicationContext();
+
         setContentView(R.layout.activity_pie);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        CoordinatorLayout container = (CoordinatorLayout)findViewById(R.id.activity_pie) ;
+        final MyAnimationView animView = new MyAnimationView(this);
+        container.addView(animView);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                animView.startAnimation();
             }
         });
 

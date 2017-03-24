@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Stack;
 
 import edu.cs.datamagic.R;
+import edu.cs.datamagic.activity.StackActivity;
 
 /**
  * Created by GoWang on 2017/3/14.
@@ -116,7 +117,6 @@ public class ArrayStackFragment extends Fragment {
                 }
             }
         });
-
 
         return rootView;
     }
