@@ -46,8 +46,24 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
         }
     }
 
+    private void createAnimation(point start, point end) {
+        if (bounceAnim == null) {
+//            point startXY = new point(0f, 0f);
+//            point endXY = new point(300f, 500f);
+            bounceAnim = ObjectAnimator.ofObject(ballHolder, "xY",
+                    new XYEvaluator(), start, end);
+            bounceAnim.setDuration(1500);
+            bounceAnim.addUpdateListener(this);
+        }
+    }
+
     public void startAnimation() {
         createAnimation();
+        bounceAnim.start();
+    }
+
+    public void startAnimation(point start, point end) {
+        createAnimation(start, end);
         bounceAnim.start();
     }
 
@@ -67,6 +83,8 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
         RadialGradient gradient = new RadialGradient(37.5f, 12.5f,
                 50f, color, darkColor, Shader.TileMode.CLAMP);
         paint.setShader(gradient);
+        paint.setStrokeWidth(6.0f);
+        paint.setStyle(Paint.Style.STROKE);
         shapeHolder.setPaint(paint);
         return shapeHolder;
     }

@@ -1,5 +1,7 @@
 package edu.cs.datamagic.graphics;
 
+import java.util.Random;
+
 /**
  * Created by GoWang on 2017/2/27.
  */
@@ -25,5 +27,13 @@ public class point {
         StringBuilder sb = new StringBuilder();
         sb.append(" point: x = " + x + " y = " + y);
         return sb.toString();
+    }
+
+    public static point getRandom(int value) {
+        Random r = new Random();
+        int x = r.nextInt(1000 - value) + value;
+        int y = r.nextInt(1000 - value) + value;
+        System.gc();
+        return new point(x, y);
     }
 }

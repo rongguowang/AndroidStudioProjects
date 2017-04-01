@@ -42,6 +42,7 @@ public class LadderView extends View {
     private ArrayList<line> lineList = new ArrayList<>();
     private ArrayList<line> barList = new ArrayList<>();
     private ArrayList<text> textList = new ArrayList<>();
+    private ArrayList<text> indexList = new ArrayList<>();
     private String[] texts;
     private String TAGS = "LadderView: ";
 
@@ -105,8 +106,16 @@ public class LadderView extends View {
         }
     }
 
+    public int getLadderSteps() {
+        return steps;
+    }
+    public point getIndexPosition(int i) {
+        return indexList.get(i - 1).getTextPosition();
+    }
+
     private void buildTextList(String[] slist) {
         textList.clear();
+        indexList.clear();
         float textMeasure = 0;
         float textSize = paint.getTextSize();
         float x = 0, y = 0;
@@ -128,7 +137,7 @@ public class LadderView extends View {
                     iny = barList.get(i).getStopPoint().getY() + defaultIndexHeight;
                 } else {
                 }
-                textList.add(new text(new point(inx, iny), String.valueOf(i + 1)));
+                indexList.add(new text(new point(inx, iny), String.valueOf(i)));
             }
         } else {
             for (int i = 0; i < steps; i++) {
@@ -165,7 +174,7 @@ public class LadderView extends View {
                 } else {
                 }
 
-                textList.add(new text(new point(inx, iny), String.valueOf(i)));
+                indexList.add(new text(new point(inx, iny), String.valueOf(i)));
                 if (i < slist.length && slist[i] != null) {
                     text t = new text(new point(x, y), slist[i]);
                     textList.add(t);
@@ -276,6 +285,11 @@ public class LadderView extends View {
         Log.e(TAGS, "=================================================");
         for (int i = 0; i < textList.size(); i++) {
             text t = textList.get(i);
+            canvas.drawText(t.getTextString(), t.getTextPosition().getX(), t.getTextPosition().getY(), paint);
+        }
+        Log.e(TAGS, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
+        for (int i = 0; i < indexList.size(); i++) {
+            text t = indexList.get(i);
             canvas.drawText(t.getTextString(), t.getTextPosition().getX(), t.getTextPosition().getY(), paint);
         }
     }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,6 +33,7 @@ public class ArrayStackFragment extends Fragment {
     private List mList = new ArrayList();
     private Stack<String> mStack = new Stack<String>();
     private int mStackIndex = 0;
+//    private MyAnimationView animView = null;
 
     /**
      * The fragment argument representing the section number for this
@@ -50,6 +52,7 @@ public class ArrayStackFragment extends Fragment {
         ArrayStackFragment fragment = new ArrayStackFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -57,7 +60,7 @@ public class ArrayStackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.array_stack_fragment, container, false);
+        View rootView = inflater.inflate(R.layout.array_stack_fragment, container, true);
 
         mSquare = (SquareView)rootView.findViewById(R.id.array_square);
         mLadder = (LadderView)rootView.findViewById(R.id.array_ladder);
@@ -69,6 +72,8 @@ public class ArrayStackFragment extends Fragment {
 
         mSquare.setIndexText("Top");
         mSquare.setInnerText(String.valueOf(mStackIndex));
+
+//        animView = new MyAnimationView(getContext());
 
         mClear.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,11 +93,12 @@ public class ArrayStackFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 String text = mEditText.getText().toString();
-                if( text != null) {
+                if( text != null && (mStackIndex - 1) <= mLadder.getLadderSteps() ) {
                     mStack.push(text);
                     mLadder.setTextList(stack2Array(mStack));
                     mStackIndex++;
                     mSquare.setInnerText(String.valueOf(mStackIndex));
+//                    animView.startAnimation(mSquare.getInnerTextPosition(),mLadder.getIndexPosition(mStackIndex));
                 } else {
 //                    Toast.makeText(this.)
                 }
@@ -131,5 +137,19 @@ public class ArrayStackFragment extends Fragment {
             j--;
         }
         return c;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+//        RelativeLayout layout = (RelativeLayout)getActivity().findViewById(R.id.array_stack_fragment);
+//        layout.removeView(animView);
+//        layout.addView(animView);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
     }
 }

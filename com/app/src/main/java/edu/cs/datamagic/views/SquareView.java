@@ -70,6 +70,10 @@ public class SquareView extends View {
         invalidate();
     }
 
+    public point getInnerTextPosition() {
+        return innerText.getTextPosition();
+    }
+
     private void buildIndexText() {
         int sx = 0;
         int sy = 0;

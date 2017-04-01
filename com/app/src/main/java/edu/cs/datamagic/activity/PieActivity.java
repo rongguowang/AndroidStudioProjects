@@ -15,6 +15,7 @@ import android.content.res.Resources;
 import java.util.Random;
 
 import edu.cs.datamagic.R;
+import edu.cs.datamagic.graphics.point;
 import edu.cs.datamagic.views.LadderView;
 import edu.cs.datamagic.views.PieChart;
 import edu.cs.datamagic.views.SquareView;
@@ -44,7 +45,7 @@ public class PieActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
 //                        .setAction("Action", null).show();
-                animView.startAnimation();
+                animView.startAnimation(point.getRandom(500), point.getRandom(500));
             }
         });
 
