@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import edu.cs.datamagic.graphics.point;
@@ -71,7 +72,15 @@ public class SquareView extends View {
     }
 
     public point getInnerTextPosition() {
-        return innerText.getTextPosition();
+        float textWidthMeaure = textPaint.measureText(innerString);
+        float textHeightMeaure = textPaint.getTextSize();
+        float x = squareHeight - (textWidthMeaure / 2);
+        float y = squareHeight / 2 - (textHeightMeaure / 2);
+        return new point(x, y);
+    }
+
+    public point getIndexTextPosition() {
+        return indexText.getTextPosition();
     }
 
     private void buildIndexText() {
@@ -179,6 +188,7 @@ public class SquareView extends View {
         canvas.drawRect(topLeftPoint.getX(), topLeftPoint.getY(), bottomRightPoint.getX(), bottomRightPoint.getY(), linePaint);
 
         if (innerText != null) {
+            Log.e(TAGS, innerText.toString());
             canvas.drawText(innerText.getTextString(), innerText.getTextPosition().getX(), innerText.getTextPosition().getY(), textPaint);
         }
 

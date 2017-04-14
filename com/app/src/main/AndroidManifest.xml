@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="edu.cs.datamagic">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.cs.datamagic">
+
     <uses-sdk android:minSdkVersion="13" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
@@ -15,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name="edu.cs.datamagic.RailHelpActivity"
+            android:name=".RailHelpActivity"
             android:label="@string/title_activity_railhelp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +24,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.cs.datamagic.WayPickerActivity"
+            android:name=".WayPickerActivity"
             android:label="@string/title_activity_way_picker"
-            android:uiOptions="splitActionBarWhenNarrow" >
+            android:uiOptions="splitActionBarWhenNarrow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="edu.cs.datamagic.activity" />
             </intent-filter>
         </activity>
         <activity
-            android:name="edu.cs.datamagic.activity.PieActivity"
+            android:name=".activity.PieActivity"
             android:label="@string/title_activity_pie"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -43,7 +44,7 @@
         <activity
             android:name=".activity.StackActivity"
             android:label="@string/title_activity_stack"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="edu.cs.datamagic.activity" />
@@ -56,6 +57,15 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ArrayListStack"
+            android:label="@string/title_activity_array_list"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="edu.cs.datamagic.activity" />
             </intent-filter>
         </activity>
     </application>

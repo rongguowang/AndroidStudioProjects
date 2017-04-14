@@ -20,22 +20,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
-            android:src="@drawable/clear_66" />
+            android:src="@drawable/clear_44" />
         <EditText
             android:id="@+id/array_edittext"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_weight="1"/>
         <ImageButton
             android:id="@+id/array_push"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/push_67"/>
+            android:src="@drawable/push_48"/>
         <ImageButton
             android:id="@+id/array_pop"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/pop_67" />
+            android:src="@drawable/pop_48" />
 
     </LinearLayout>
     <edu.cs.datamagic.views.SquareView

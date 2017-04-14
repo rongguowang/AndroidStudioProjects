@@ -1,5 +1,6 @@
 package edu.cs.datamagic.views;
 
+import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.animation.TypeEvaluator;
 import android.animation.ValueAnimator;
@@ -11,6 +12,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.view.View;
+import android.view.animation.Animation;
 
 import java.util.ArrayList;
 
@@ -22,7 +24,7 @@ import edu.cs.datamagic.graphics.point;
  * Created by GoWang on 2017/3/24.
  */
 
-public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdateListener {
+public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdateListener{
 
     public final ArrayList<ShapeHolder> balls = new ArrayList<ShapeHolder>();
     ValueAnimator bounceAnim = null;
@@ -35,6 +37,7 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
         ballHolder = new BallXYHolder(ball);
     }
 
+
     private void createAnimation() {
         if (bounceAnim == null) {
             point startXY = new point(0f, 0f);
@@ -46,7 +49,7 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
         }
     }
 
-    private void createAnimation(point start, point end) {
+    private void createAnimation(point start, point end, Animator.AnimatorListener listener) {
         if (bounceAnim == null) {
 //            point startXY = new point(0f, 0f);
 //            point endXY = new point(300f, 500f);
@@ -54,6 +57,7 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
                     new XYEvaluator(), start, end);
             bounceAnim.setDuration(1500);
             bounceAnim.addUpdateListener(this);
+            bounceAnim.addListener(listener);
         }
     }
 
@@ -62,18 +66,20 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
         bounceAnim.start();
     }
 
-    public void startAnimation(point start, point end) {
-        createAnimation(start, end);
+    public void startAnimation(point start, point end, Animator.AnimatorListener listener) {
+        createAnimation(start, end, listener);
         bounceAnim.start();
     }
 
     private ShapeHolder createBall(float x, float y) {
         OvalShape circle = new OvalShape();
-        circle.resize(50f, 50f);
+        circle.resize(100f, 100f);
         ShapeDrawable drawable = new ShapeDrawable(circle);
         ShapeHolder shapeHolder = new ShapeHolder(drawable);
-        shapeHolder.setX(x - 25f);
-        shapeHolder.setY(y - 25f);
+//        shapeHolder.setX(x - 25f);
+//        shapeHolder.setY(y - 25f);
+        shapeHolder.setX(x);
+        shapeHolder.setY(y);
         int red = (int)(Math.random() * 255);
         int green = (int)(Math.random() * 255);
         int blue = (int)(Math.random() * 255);
@@ -108,5 +114,13 @@ public class MyAnimationView extends View implements ValueAnimator.AnimatorUpdat
             return new point(startXY.getX() + fraction * (endXY.getX() - startXY.getX()),
                     startXY.getY() + fraction * (endXY.getY() - startXY.getY()));
         }
+    }
+
+    public void onAnimationStart() {
+        super.onAnimationStart();
+    }
+
+    public void onAnimationEnd() {
+        super.onAnimationEnd();
     }
 }

@@ -110,9 +110,21 @@ public class LadderView extends View {
         return steps;
     }
     public point getIndexPosition(int i) {
-        return indexList.get(i - 1).getTextPosition();
+        float indexMeausre = paint.measureText(String.valueOf(i));
+        point p = indexList.get(i - 1).getTextPosition();
+        float textSize = paint.getTextSize();
+        float x = p.getX() - (mStepHeight / 2) + indexMeausre / 2 ;
+        float y = p.getY() - mLadderWidth - textSize / 2;
+        return new point(x, y);
     }
-
+    public point getTextPosition(int i) {
+        float indexMeausre = paint.measureText(String.valueOf(i));
+        point p = indexList.get(i).getTextPosition();
+        float textSize = paint.getTextSize();
+        float x = p.getX() - (mStepHeight / 2) + indexMeausre / 2 ;
+        float y = p.getY() - (mLadderWidth + mLadderWidth /2) - (textSize + textSize / 2);
+        return new point(x, y);
+    }
     private void buildTextList(String[] slist) {
         textList.clear();
         indexList.clear();
@@ -267,22 +279,22 @@ public class LadderView extends View {
     public void onDraw(Canvas canvas) {
         paint.setColor(Color.BLACK);
         paint.setStrokeWidth(3);
-        Log.e(TAGS, "**************************************************");
+        //Log.e(TAGS, "**************************************************");
         for (int i = 0; i < lineList.size(); i++) {
             line tmp = lineList.get(i);
-            Log.e(TAGS, tmp.toString());
+            //Log.e(TAGS, tmp.toString());
             canvas.drawLine(tmp.getStartPoint().getX(), tmp.getStartPoint().getY(),
                     tmp.getStopPoint().getX(), tmp.getStopPoint().getY(),paint);
         }
-        Log.e(TAGS, "--------------------------------------------------");
+        //Log.e(TAGS, "--------------------------------------------------");
         for (int i = 0; i < barList.size(); i++) {
             line tmp = barList.get(i);
-            Log.e(TAGS, tmp.toString());
+            //Log.e(TAGS, tmp.toString());
             canvas.drawLine(tmp.getStartPoint().getX(), tmp.getStartPoint().getY(),
                     tmp.getStopPoint().getX(), tmp.getStopPoint().getY(),paint);
         }
 
-        Log.e(TAGS, "=================================================");
+        //Log.e(TAGS, "=================================================");
         for (int i = 0; i < textList.size(); i++) {
             text t = textList.get(i);
             canvas.drawText(t.getTextString(), t.getTextPosition().getX(), t.getTextPosition().getY(), paint);
@@ -290,6 +302,7 @@ public class LadderView extends View {
         Log.e(TAGS, "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$");
         for (int i = 0; i < indexList.size(); i++) {
             text t = indexList.get(i);
+            Log.e(TAGS, t.toString());
             canvas.drawText(t.getTextString(), t.getTextPosition().getX(), t.getTextPosition().getY(), paint);
         }
     }

@@ -2,6 +2,7 @@ package edu.cs.datamagic.views;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +23,7 @@ import edu.cs.datamagic.activity.StackActivity;
  * Created by GoWang on 2017/3/14.
  */
 
-public class ArrayStackFragment extends Fragment {
+public class ArrayStackFragment extends Fragment  implements View.OnClickListener{
     private SquareView mSquare = null;
     private LadderView mLadder = null;
     private TextView mText = null;
@@ -33,7 +34,8 @@ public class ArrayStackFragment extends Fragment {
     private List mList = new ArrayList();
     private Stack<String> mStack = new Stack<String>();
     private int mStackIndex = 0;
-//    private MyAnimationView animView = null;
+    private MyAnimationView animView = null;
+    private String TAGS = "ArrayStackFragment: ";
 
     /**
      * The fragment argument representing the section number for this
@@ -52,7 +54,6 @@ public class ArrayStackFragment extends Fragment {
         ArrayStackFragment fragment = new ArrayStackFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_SECTION_NUMBER, sectionNumber);
-
         fragment.setArguments(args);
         return fragment;
     }
@@ -73,56 +74,9 @@ public class ArrayStackFragment extends Fragment {
         mSquare.setIndexText("Top");
         mSquare.setInnerText(String.valueOf(mStackIndex));
 
-//        animView = new MyAnimationView(getContext());
-
-        mClear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    mStack.clear();
-                    mLadder.setTextList(null);
-                    mStackIndex = 0;
-                    mSquare.setInnerText(String.valueOf(mStackIndex));
-                    mText.setText("");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        mPush.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String text = mEditText.getText().toString();
-                if( text != null && (mStackIndex - 1) <= mLadder.getLadderSteps() ) {
-                    mStack.push(text);
-                    mLadder.setTextList(stack2Array(mStack));
-                    mStackIndex++;
-                    mSquare.setInnerText(String.valueOf(mStackIndex));
-//                    animView.startAnimation(mSquare.getInnerTextPosition(),mLadder.getIndexPosition(mStackIndex));
-                } else {
-//                    Toast.makeText(this.)
-                }
-            }
-        });
-        mPop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    if (mStack.size() > 0) {
-                        String text = (String)mStack.pop();
-                        mLadder.setTextList(stack2Array(mStack));
-                        mText.setText("Value poped: " + text);
-                        mStackIndex--;
-                        mSquare.setInnerText(String.valueOf(mStackIndex));
-                    } else {
-//                        Toast.makeText();
-                    }
-                } catch (Exception nullE) {
-                    nullE.printStackTrace();
-//                    Toast.makeText();
-                }
-            }
-        });
+        mClear.setOnClickListener(this);
+        mPush.setOnClickListener(this);
+        mPop.setOnClickListener(this);
 
         return rootView;
     }
@@ -140,6 +94,18 @@ public class ArrayStackFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+//        animView = new MyAnimationView(getContext());
+
+        Log.e(TAGS, "onViewCreated entered.");
+    }
+
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+
+    }
+
+        @Override
     public void onStart() {
         super.onStart();
 //        RelativeLayout layout = (RelativeLayout)getActivity().findViewById(R.id.array_stack_fragment);
@@ -151,5 +117,56 @@ public class ArrayStackFragment extends Fragment {
     public void onResume() {
         super.onResume();
 
+    }
+
+    public void onClick(View v) {
+        String text;
+        switch (v.getId()) {
+            case R.id.array_clear:
+                try {
+                    mStack.clear();
+                    mLadder.setTextList(null);
+                    mStackIndex = 0;
+                    mSquare.setInnerText(String.valueOf(mStackIndex));
+                    mText.setText("");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                break;
+            case R.id.array_push:
+                text = mEditText.getText().toString();
+                if( text != null && (mStackIndex - 1) <= mLadder.getLadderSteps() ) {
+                    mStack.push(text);
+                    mLadder.setTextList(stack2Array(mStack));
+                    mStackIndex++;
+                    mSquare.setInnerText(String.valueOf(mStackIndex));
+                    RelativeLayout rl = (RelativeLayout)this.getActivity().findViewById(R.id.array_stack_fragment);
+//                    animView = new MyAnimationView(this.getContext());
+//                    rl.addView(animView);
+//                    animView.startAnimation(mSquare.getInnerTextPosition(),mLadder.getIndexPosition(mStackIndex));
+                } else {
+//                    Toast.makeText(this.)
+                }
+                break;
+            case R.id.array_pop:
+                try {
+                    if (mStack.size() > 0) {
+                        text = (String)mStack.pop();
+                        mLadder.setTextList(stack2Array(mStack));
+                        mText.setText("Value poped: " + text);
+                        mStackIndex--;
+                        mSquare.setInnerText(String.valueOf(mStackIndex));
+                    } else {
+//                        Toast.makeText();
+                    }
+                } catch (Exception nullE) {
+                    nullE.printStackTrace();
+//                    Toast.makeText();
+                }
+                break;
+            default:
+                break;
+
+        }
     }
 }
