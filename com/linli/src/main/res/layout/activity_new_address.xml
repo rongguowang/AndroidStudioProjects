@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_new_address"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.linli.mobile.acitivty.NewAddressActivity">
+    <LinearLayout android:orientation="vertical"
+        android:id="@+id/info_lay"
+        android:background="@color/white"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10.0dip">
+        !--android:layout_below="@+id/common_head_view"-->
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/editor_address_item_layout_height"
+            style="@style/addShoppingAddressLayoutStyle">
+            <TextView 
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/addNewShoppingAddress_contacts_str"
+                style="@style/addShoppingAddressPromptedStyle" />
+            <EditText
+                android:id="@+id/addNewShoppingAddress_contacts_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/addNewShoppingAddress_contacts_hint_str"
+                style="@style/addShoppingAddressStyle" />
+        </LinearLayout>
+        <View 
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            style="@style/addShoppingAddressIntervalStyle" />
+        <LinearLayout 
+            android:layout_width="fill_parent" 
+            android:layout_height="@dimen/editor_address_item_layout_height" 
+            style="@style/addShoppingAddressLayoutStyle">
+            <TextView 
+                android:gravity="center" 
+                android:visibility="invisible" 
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent" 
+                android:text="@string/addNewShoppingAddress_contacts_str" 
+                style="@style/common_text" />
+            <RadioGroup 
+                android:orientation="horizontal" 
+                android:id="@+id/addNewShoppingAddress_sex_raGroup" 
+                android:layout_width="fill_parent" 
+                android:layout_height="fill_parent" 
+                style="@style/addShoppingAddressStyle">
+                <RadioButton 
+                    android:id="@+id/addNewShoppingAddress_mr_rt"
+                    android:paddingRight="38.0dip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/radio_button_sel"
+                    android:text="@string/addNewShoppingAddress_mr_str"
+                    style="@style/common_text" />
+                <RadioButton
+                    android:id="@+id/addNewShoppingAddress_ms_rb"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/radio_button_sel"
+                    android:text="@string/addNewShoppingAddress_ms_str"
+                    style="@style/common_text" />
+            </RadioGroup>
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            style="@style/addShoppingAddressIntervalStyle" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/editor_address_item_layout_height"
+            style="@style/addShoppingAddressLayoutStyle">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/addNewShoppingAddress_phone_str"
+                style="@style/addShoppingAddressPromptedStyle" />
+            <AutoCompleteTextView
+                android:id="@+id/addNewShoppingAddress_phone_autoTv"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/addNewShoppingAddress_phone_hint_str"
+                android:maxLength="13" android:digits="\ 0123456789"
+                android:inputType="phone"
+                style="@style/addShoppingAddressStyle" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            style="@style/addShoppingAddressIntervalStyle" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/editor_address_item_layout_height"
+            style="@style/addShoppingAddressLayoutStyle">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/addNewShoppingAddress_city_str"
+                style="@style/addShoppingAddressPromptedStyle" />
+            <Button
+                android:id="@+id/addNewShoppingAddress_city_bt"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/addNewShoppingAddress_city_hint_str"
+                style="@style/addShoppingAddressStyle" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            style="@style/addShoppingAddressIntervalStyle" />
+        <LinearLayout
+            android:id="@+id/address_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/editor_address_item_layout_height"
+            style="@style/addShoppingAddressLayoutStyle">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/com_shippingAddress_str"
+                style="@style/addShoppingAddressPromptedStyle" />
+            <Button
+                android:id="@+id/addNewShoppingAddress_shippingAddress_bt"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/addNewShoppingAddress_shippingAddress_hint_str"
+                style="@style/addShoppingAddressStyle" />
+        </LinearLayout>
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.5dip"
+            style="@style/addShoppingAddressIntervalStyle" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/editor_address_item_layout_height"
+            style="@style/addShoppingAddressLayoutStyle">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:text="@string/addNewShoppingAddress_houseNumber_str"
+                style="@style/addShoppingAddressPromptedStyle" />
+            <EditText
+                android:id="@+id/addNewShoppingAddress_houseNumber_edit"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:hint="@string/addNewShoppingAddress_houseNumber_hint_str"
+                style="@style/addShoppingAddressStyle" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/addNewShoppingAddress_deleteAddress_LinLayout"
+        android:background="@drawable/shoppingaddress_footview_sel"
+        android:visibility="gone"
+        android:layout_width="fill_parent"
+        android:layout_height="50.0dip"
+        android:layout_marginTop="10.0dip"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:layout_gravity="center"
+            android:paddingTop="12.0dip"
+            android:paddingBottom="12.0dip"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:text="@string/addNewShoppingAddress_deleteAddress_str"
+            style="@style/common_text" />
+    </LinearLayout>
+</RelativeLayout>

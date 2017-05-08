@@ -1,1 +1,1 @@
-include ':app', ':asr'
+include ':app', ':asr', ':linli'

@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">邻里</string>
+    <string name="addNewShoppingAddress_contacts_str">联  系  人</string>
+    <string name="addNewShoppingAddress_contacts_hint_str">收货人姓名</string>
+    <string name="addNewShoppingAddress_mr_str">   先生</string>
+    <string name="addNewShoppingAddress_ms_str">   女士</string>
+    <string name="addNewShoppingAddress_phone_str">手机号码</string>
+    <string name="addNewShoppingAddress_phone_hint_str">联系您的电话</string>
+    <string name="addNewShoppingAddress_city_str">所在城市</string>
+    <string name="addNewShoppingAddress_city_hint_str">请选择城市</string>
+    <string name="com_shippingAddress_str">收货地址</string>
+    <string name="addNewShoppingAddress_shippingAddress_hint_str">请选择您的住宅小区、大厦或学校</string>
+    <string name="addNewShoppingAddress_houseNumber_str">门  牌  号</string>
+    <string name="addNewShoppingAddress_houseNumber_hint_str">请输入楼号门牌号等详细信息</string>
+    <string name="addNewShoppingAddress_deleteAddress_str">删除当前地址</string>
+</resources>

@@ -1,22 +1,17 @@
-package edu.cs.datamagic.activity;
+package com.linli.mobile.acitivty;
 
-import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
-import android.database.DataSetObserver;
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+
+import com.linli.mobile.R;
 
 import java.text.Collator;
 import java.util.ArrayList;
@@ -26,29 +21,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import edu.cs.datamagic.R;
-
-public class MagicActivity extends ListActivity {
-    private ListView acivityList = null;
-    private final String INTENT_CATEGORY = "edu.cs.datamagic.activity";
-    private String TAGS = "MagicActivity: ";
-
+public class EntryActivity extends ListActivity {
+    private String TAGS = "EntryActivity: ";
+    private final String INTENT_CATEGORY = "com.linli.mobile.acitivty";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_magic);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
-
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
-
+        setContentView(R.layout.activity_entry);
         Intent intent = getIntent();
         String path = intent.getStringExtra("edu.cs.datamagic.Path");
         Log.d(TAGS, "path = " + path);
@@ -63,6 +42,7 @@ public class MagicActivity extends ListActivity {
                 new int[] { android.R.id.text1 }));
         getListView().setTextFilterEnabled(true);
     }
+
 
 
     protected List<Map<String, Object>> getData(String prefix) {
@@ -107,6 +87,7 @@ public class MagicActivity extends ListActivity {
             if (prefixWithSlash.length() == 0 || label.startsWith(prefixWithSlash)) {
 
                 String[] labelPath = label.split("/");
+                Log.d(TAGS, "labelPath = " + labelPath.toString());
 
                 String nextLabel = prefixPath == null ? labelPath[0] : labelPath[prefixPath.length];
                 Log.d(TAGS, "nextLabel = " + nextLabel);
@@ -131,7 +112,7 @@ public class MagicActivity extends ListActivity {
 
     private final static Comparator<Map<String, Object>> sDisplayNameComparator =
             new Comparator<Map<String, Object>>() {
-                private final Collator   collator = Collator.getInstance();
+                private final Collator collator = Collator.getInstance();
 
                 public int compare(Map<String, Object> map1, Map<String, Object> map2) {
                     return collator.compare(map1.get("title"), map2.get("title"));
@@ -148,8 +129,8 @@ public class MagicActivity extends ListActivity {
     protected Intent browseIntent(String path) {
         Log.d(TAGS, "function browseIntent-> path = " + path );
         Intent result = new Intent();
-        result.setClass(this, MagicActivity.class);
-        result.putExtra("edu.cs.datamagic.Path", path);
+        result.setClass(this, EntryActivity.class);
+        result.putExtra("com.linli.mobile.acitivty", path);
         return result;
     }
 
