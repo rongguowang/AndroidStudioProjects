@@ -20,6 +20,7 @@
             android:label="@string/title_activity_railhelp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="edu.cs.datamagic.activity" />
             </intent-filter>
         </activity>
@@ -29,6 +30,7 @@
             android:uiOptions="splitActionBarWhenNarrow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="edu.cs.datamagic.activity" />
             </intent-filter>
         </activity>
@@ -38,6 +40,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="edu.cs.datamagic.activity" />
             </intent-filter>
         </activity>
@@ -47,6 +50,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="edu.cs.datamagic.activity" />
             </intent-filter>
         </activity>
@@ -56,6 +60,7 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -63,6 +68,16 @@
             android:name=".activity.ArrayListStack"
             android:label="@string/title_activity_array_list"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="edu.cs.datamagic.activity" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.LauncherActivity"
+            android:label="@string/title_activity_launcher"
+            android:parentActivityName="android.app.ListActivity">
+            !--android:theme="@style/AppTheme.NoActionBar"-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="edu.cs.datamagic.activity" />

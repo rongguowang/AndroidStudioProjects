@@ -14,4 +14,8 @@
     <string name="addNewShoppingAddress_houseNumber_hint_str">请输入楼号门牌号等详细信息</string>
     <string name="addNewShoppingAddress_deleteAddress_str">删除当前地址</string>
     <string name="title_new_address">NewAddress</string>
+    <string name="address_management">管理收货地址</string>
+    <string name="add_new_receiving_address">新增地址</string>
+    <string name="com_save_str">保存</string>
+    <string name="title_activity_add_address">AddAddressActivity</string>
 </resources>

@@ -35,6 +35,7 @@ public class PieActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
         CoordinatorLayout container = (CoordinatorLayout)findViewById(R.id.activity_pie) ;
         final MyAnimationView animView = new MyAnimationView(this);
         container.addView(animView);

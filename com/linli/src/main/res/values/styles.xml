@@ -7,6 +7,16 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
     <style name="addShoppingAddressLayoutStyle">
         <item name="android:gravity">center_vertical</item>
         <item name="android:orientation">horizontal</item>
@@ -14,11 +24,13 @@
         <item name="android:layout_marginTop">5.0dip</item>
         <item name="android:layout_marginRight">10.0dip</item>
     </style>
+
     <style name="addShoppingAddressPromptedStyle">
         <item name="android:textSize">@dimen/text_middle_size</item>
         <item name="android:textColor">@color/common_text_black_gray</item>
         <item name="android:gravity">center</item>
     </style>
+
     <style name="addShoppingAddressStyle">
         <item name="android:textSize">@dimen/text_middle_size</item>
         <item name="android:textColor">@color/common_text_black_gray</item>
@@ -29,6 +41,7 @@
         <item name="android:maxLines">1</item>
         <item name="android:singleLine">true</item>
     </style>
+
     <style name="addShoppingAddressIntervalStyle">
         <item name="android:background">@color/common_line_gray</item>
         <item name="android:layout_height">0.5dip</item>
@@ -36,6 +49,7 @@
         <item name="android:layout_marginTop">5.0dip</item>
         <item name="android:layout_marginRight">10.0dip</item>
     </style>
+
     <style name="common_text">
         <item name="android:textSize">@dimen/text_middle_size</item>
         <item name="android:textColor">@color/common_text_black_gray</item>

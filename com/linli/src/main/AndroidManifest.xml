@@ -8,14 +8,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".acitivty.EntryActivity">
+        <activity android:name=".acitivty.EntryActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".acitivty.NewAddressActivity"
-            android:label="@string/title_new_address">
+        <activity
+            android:name=".acitivty.AddAddressActivity"
+            android:label="@string/title_activity_add_address"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="com.linli.mobile.acitivty" />

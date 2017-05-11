@@ -4,8 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="white">#ffffffff</color>
+    <color name="black">#ff000000</color>
     <color name="common_text_black_gray">#ff333333</color>
     <color name="common_text_hint_gray">#ff999999</color>
     <color name="common_line_gray">#fff1f1f1</color>
     <color name="shoppingaddress_sel_color">#ffdfdfde</color>
+    <color name="common_actionbar_bg">#fff9fafd</color>
+    <color name="color_ffa800">#ffffa800</color>
 </resources>
