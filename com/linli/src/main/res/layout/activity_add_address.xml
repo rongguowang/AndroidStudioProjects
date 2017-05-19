@@ -20,6 +20,7 @@
             android:background="@color/common_actionbar_bg"
             app:popupTheme="@style/AppTheme.PopupOverlay">
             <ImageView
+                android:id="@+id/add_address_header_back"
                 android:layout_marginLeft="15dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -35,7 +36,7 @@
                 android:textSize="55px"/>
             <TextView
                 android:layout_marginRight="15dip"
-                android:id="@+id/address_header_save"
+                android:id="@+id/add_address_header_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
